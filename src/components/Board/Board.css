@@ -1,0 +1,13 @@
+.square {
+  float: left;
+}
+
+.square:nth-child(2n),
+.square.invert:nth-child(2n + 1) {
+  background-color: brown;
+}
+
+.square:nth-child(2n + 1),
+.square.invert:nth-child(2n) {
+  background-color: tan;
+}
