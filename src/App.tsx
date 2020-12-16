@@ -1,11 +1,10 @@
 import React from 'react';
 
 import './App.css';
-import Board from './components/Board/Board';
-import { getInitPieces } from './services/seed';
+import Game from './components/Game/Game';
 
 function App() {
-  return <Board pieces={getInitPieces()}></Board>;
+  return <Game></Game>;
 }
 
 export default App;

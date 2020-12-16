@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Draggable, { ControlPosition } from 'react-draggable';
-import { BOARD_SIZE } from '../../config';
-import notation from '../../notation';
 
 import './Gridify.css';
+import { BOARD_SIZE } from '../../config';
+import notation from '../../notation';
 
 const SQUARE_SIZE = BOARD_SIZE / 8;
 const OFFSET = { x: -SQUARE_SIZE / 2, y: -SQUARE_SIZE / 2 } as ControlPosition;
@@ -22,6 +22,11 @@ const Gridify: React.FC<GridifyProps> = ({
 }) => {
   const [pos, setPos] = useState(toControlPosition(place));
 
+  useEffect(() => {
+    const newPos = toControlPosition(place);
+    setPos(newPos);
+  }, [place]);
+
   return (
     <Draggable
       bounds={{
@@ -30,14 +35,7 @@ const Gridify: React.FC<GridifyProps> = ({
         right: SQUARE_SIZE * 8,
         bottom: SQUARE_SIZE * 8,
       }}
-      onStart={(_, { x, y }) => setPos({ x, y })}
-      onStop={(_, newPos) => {
-        const newMove = move(pos, newPos, moves);
-        setPos(newMove);
-        if (onChange) {
-          onChange(toNotation(newMove));
-        }
-      }}
+      onStop={(_, newPos) => onChange(toNotation(newPos))}
       position={pos}
       positionOffset={{ x: -SQUARE_SIZE / 2, y: -SQUARE_SIZE / 2 }}
     >

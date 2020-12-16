@@ -5,16 +5,17 @@ import { BOARD_SIZE } from '../../config';
 import Piece, { PieceProps } from '../Piece/Piece';
 import Gridify, { GridifyProps } from '../Gridify/Gridify';
 
-export type CoordinatePiece = GridifyProps & PieceProps;
+export type CoordinatePiece = Omit<PieceProps & GridifyProps, 'onChange'>;
 
 export interface BoardProps {
   pieces: CoordinatePiece[];
+  onChange: (pieces: CoordinatePiece[]) => any;
 }
 
-const Board = ({ pieces }: BoardProps) => (
+const Board = ({ onChange, pieces }: BoardProps) => (
   <div style={{ width: BOARD_SIZE, height: BOARD_SIZE }}>
     {getSquares()}
-    {gridifyPieces(pieces)}
+    {gridifyPieces(pieces, onChange)}
   </div>
 );
 export default Board;
@@ -28,9 +29,20 @@ const getSquares = () =>
     ></div>
   ));
 
-const gridifyPieces = (pieces: CoordinatePiece[]) =>
-  pieces.map(({ color, onChange, moves, pieceType, place }) => (
-    <Gridify key={place} {...{ moves, onChange, place }}>
-      <Piece {...{ color, pieceType }}></Piece>
+const gridifyPieces = (
+  pieces: CoordinatePiece[],
+  onChange: (pieces: CoordinatePiece[]) => any
+) =>
+  pieces.map((piece) => (
+    <Gridify
+      key={piece.place}
+      onChange={(move) => {
+        piece.place = move;
+        onChange([...pieces]);
+      }}
+      moves={piece.moves}
+      place={piece.place}
+    >
+      <Piece color={piece.color} pieceType={piece.pieceType}></Piece>
     </Gridify>
   ));
