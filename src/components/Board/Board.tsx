@@ -35,13 +35,13 @@ const gridifyPieces = (
 ) =>
   pieces.map((piece) => (
     <Gridify
-      key={piece.place}
+      key={`${piece.coordinate[0]}${piece.coordinate[1]}`}
       onChange={(move) => {
-        piece.place = move;
+        piece.coordinate = move;
         onChange([...pieces]);
       }}
       moves={piece.moves}
-      place={piece.place}
+      coordinate={piece.coordinate}
     >
       <Piece color={piece.color} pieceType={piece.pieceType}></Piece>
     </Gridify>

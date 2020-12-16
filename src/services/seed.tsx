@@ -5,193 +5,253 @@ export const getInitPieces = () =>
     {
       pieceType: 'R',
       color: 'white',
-      place: 'a1',
-      moves: ['a1']
+      coordinate: [0, 0],
+      moves: [],
     },
     {
       pieceType: 'N',
       color: 'white',
-      place: 'b1',
-      moves: ['b1', 'a3', 'c3']
+      coordinate: [1, 0],
+      moves: [
+        [0, 2],
+        [2, 2],
+      ],
     },
     {
       pieceType: 'B',
       color: 'white',
-      place: 'c1',
-      moves: ['c1']
+      coordinate: [2, 0],
+      moves: [],
     },
     {
       pieceType: 'Q',
       color: 'white',
-      place: 'd1',
-      moves: ['d1']
+      coordinate: [3, 0],
+      moves: [],
     },
     {
       pieceType: 'K',
       color: 'white',
-      place: 'e1',
-      moves: ['e1']
+      coordinate: [4, 0],
+      moves: [],
     },
     {
       pieceType: 'B',
       color: 'white',
-      place: 'f1',
-      moves: ['f1']
+      coordinate: [5, 0],
+      moves: [],
     },
     {
       pieceType: 'N',
       color: 'white',
-      place: 'g1',
-      moves: ['g1', 'f3', 'h3']
+      coordinate: [6, 0],
+      moves: [
+        [5, 2],
+        [7, 2],
+      ],
     },
     {
       pieceType: 'R',
       color: 'white',
-      place: 'h1',
-      moves: ['h1']
+      coordinate: [7, 0],
+      moves: [],
     },
     {
       pieceType: 'P',
       color: 'white',
-      place: 'a2',
-      moves: ['a2', 'a3', 'a4']
+      coordinate: [0, 1],
+      moves: [
+        [0, 2],
+        [0, 3],
+      ],
     },
     {
       pieceType: 'P',
       color: 'white',
-      place: 'b2',
-      moves: ['b2', 'b3', 'b4']
+      coordinate: [1, 1],
+      moves: [
+        [1, 2],
+        [1, 3],
+      ],
     },
     {
       pieceType: 'P',
       color: 'white',
-      place: 'c2',
-      moves: ['c2', 'c3', 'c4']
+      coordinate: [2, 1],
+      moves: [
+        [2, 2],
+        [2, 3],
+      ],
     },
     {
       pieceType: 'P',
       color: 'white',
-      place: 'd2',
-      moves: ['d2', 'd3', 'd4']
+      coordinate: [3, 1],
+      moves: [
+        [3, 2],
+        [3, 3],
+      ],
     },
     {
       pieceType: 'P',
       color: 'white',
-      place: 'e2',
-      moves: ['e2', 'e3', 'e4']
+      coordinate: [4, 1],
+      moves: [
+        [4, 2],
+        [4, 3],
+      ],
     },
     {
       pieceType: 'P',
       color: 'white',
-      place: 'f2',
-      moves: ['f2', 'f3', 'f4']
+      coordinate: [5, 1],
+      moves: [
+        [5, 2],
+        [5, 3],
+      ],
     },
     {
       pieceType: 'P',
       color: 'white',
-      place: 'g2',
-      moves: ['g2', 'g3', 'g4']
+      coordinate: [6, 1],
+      moves: [
+        [6, 2],
+        [6, 3],
+      ],
     },
     {
       pieceType: 'P',
       color: 'white',
-      place: 'h2',
-      moves: ['h2', 'h3', 'h4']
+      coordinate: [7, 1],
+      moves: [
+        [7, 2],
+        [7, 3],
+      ],
     },
     {
       pieceType: 'P',
       color: 'black',
-      place: 'a7',
-      moves: ['a7', 'a6', 'a5']
+      coordinate: [0, 6],
+      moves: [
+        [0, 5],
+        [0, 4],
+      ],
     },
     {
       pieceType: 'P',
       color: 'black',
-      place: 'b7',
-      moves: ['b7', 'b6', 'b5']
+      coordinate: [1, 6],
+      moves: [
+        [1, 5],
+        [1, 4],
+      ],
     },
     {
       pieceType: 'P',
       color: 'black',
-      place: 'c7',
-      moves: ['c7', 'c6', 'c5']
+      coordinate: [2, 6],
+      moves: [
+        [2, 5],
+        [2, 4],
+      ],
     },
     {
       pieceType: 'P',
       color: 'black',
-      place: 'd7',
-      moves: ['d7', 'd6', 'd5']
+      coordinate: [3, 6],
+      moves: [
+        [3, 5],
+        [3, 4],
+      ],
     },
     {
       pieceType: 'P',
       color: 'black',
-      place: 'e7',
-      moves: ['e7', 'e6', 'e5']
+      coordinate: [4, 6],
+      moves: [
+        [4, 5],
+        [4, 4],
+      ],
     },
     {
       pieceType: 'P',
       color: 'black',
-      place: 'f7',
-      moves: ['f7', 'f6', 'f5']
+      coordinate: [5, 6],
+      moves: [
+        [5, 5],
+        [5, 4],
+      ],
     },
     {
       pieceType: 'P',
       color: 'black',
-      place: 'g7',
-      moves: ['g7', 'g6', 'g5']
+      coordinate: [6, 6],
+      moves: [
+        [6, 5],
+        [6, 4],
+      ],
     },
     {
       pieceType: 'P',
       color: 'black',
-      place: 'h7',
-      moves: ['h7', 'h6', 'h5']
+      coordinate: [7, 6],
+      moves: [
+        [7, 5],
+        [7, 4],
+      ],
     },
     {
       pieceType: 'R',
       color: 'black',
-      place: 'a8',
-      moves: ['a8']
+      coordinate: [0, 7],
+      moves: [],
     },
     {
       pieceType: 'N',
       color: 'black',
-      place: 'b8',
-      moves: ['b8', 'a6', 'c6']
+      coordinate: [1, 7],
+      moves: [
+        [0, 5],
+        [2, 5],
+      ],
     },
     {
       pieceType: 'B',
       color: 'black',
-      place: 'c8',
-      moves: ['c8']
+      coordinate: [2, 7],
+      moves: [],
     },
     {
       pieceType: 'Q',
       color: 'black',
-      place: 'd8',
-      moves: ['d8']
+      coordinate: [3, 7],
+      moves: [],
     },
     {
       pieceType: 'K',
       color: 'black',
-      place: 'e8',
-      moves: ['e8']
+      coordinate: [4, 7],
+      moves: [],
     },
     {
       pieceType: 'B',
       color: 'black',
-      place: 'f8',
-      moves: ['f8']
+      coordinate: [5, 7],
+      moves: [],
     },
     {
       pieceType: 'N',
       color: 'black',
-      place: 'g8',
-      moves: ['g8', 'f6', 'h6']
+      coordinate: [6, 7],
+      moves: [
+        [5, 5],
+        [7, 5],
+      ],
     },
     {
       pieceType: 'R',
       color: 'black',
-      place: 'h8',
-      moves: ['h8']
-    }
+      coordinate: [7, 7],
+      moves: [],
+    },
   ] as CoordinatePiece[];
