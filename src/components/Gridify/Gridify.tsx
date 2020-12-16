@@ -21,6 +21,7 @@ const Gridify: React.FC<GridifyProps> = ({
   place,
 }) => {
   const [pos, setPos] = useState(toControlPosition(place));
+  const nodeRef = React.useRef(null);
 
   useEffect(() => {
     const newPos = toControlPosition(place);
@@ -35,6 +36,7 @@ const Gridify: React.FC<GridifyProps> = ({
         right: SQUARE_SIZE * 8,
         bottom: SQUARE_SIZE * 8,
       }}
+      nodeRef={nodeRef}
       onStop={(_, newPos) => onChange(toNotation(newPos))}
       position={pos}
       positionOffset={{ x: -SQUARE_SIZE / 2, y: -SQUARE_SIZE / 2 }}
@@ -42,6 +44,7 @@ const Gridify: React.FC<GridifyProps> = ({
       <div
         className='wrapper'
         style={{ width: SQUARE_SIZE, height: SQUARE_SIZE }}
+        ref={nodeRef}
       >
         {children}
       </div>
