@@ -37,7 +37,12 @@ const Gridify: React.FC<GridifyProps> = ({
         bottom: SQUARE_SIZE * 8,
       }}
       nodeRef={nodeRef}
-      onStop={(_, newPos) => onChange(toNotation(newPos))}
+      onStop={(_, newPos) => {
+        const newPosNotation = toNotation(newPos);
+        if (moves.includes(newPosNotation)) {
+          onChange(newPosNotation);
+        }
+      }}
       position={pos}
       positionOffset={{ x: -SQUARE_SIZE / 2, y: -SQUARE_SIZE / 2 }}
     >
@@ -52,20 +57,6 @@ const Gridify: React.FC<GridifyProps> = ({
   );
 };
 export default Gridify;
-
-const move = (
-  oldPos: ControlPosition,
-  newPos: ControlPosition,
-  moves: notation[]
-) => {
-  const oldPosGrid = gridify(oldPos);
-  const newPosGrid = gridify(newPos);
-
-  return (oldPosGrid.x !== newPosGrid.x || oldPosGrid.y !== newPosGrid.y) &&
-    moves.includes(toNotation(newPosGrid))
-    ? newPosGrid
-    : oldPosGrid;
-};
 
 const gridify = (pos: ControlPosition) =>
   ({
