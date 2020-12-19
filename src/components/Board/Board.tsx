@@ -14,35 +14,34 @@ export interface BoardProps {
 
 const Board = ({ onChange, pieces }: BoardProps) => (
   <div style={{ width: BOARD_SIZE, height: BOARD_SIZE }}>
-    {getSquares()}
-    {gridifyPieces(pieces, onChange)}
+    <div>
+      {Array.from({ length: 64 }, (_, i) => (
+        <Square key={i} index={i} />
+      ))}
+    </div>
+    <div>
+      {pieces.map((piece) => (
+        <Gridify
+          key={`${piece.coordinate[0]}${piece.coordinate[1]}`}
+          onChange={(move) => {
+            piece.coordinate = move;
+            onChange([...pieces]);
+          }}
+          moves={piece.moves}
+          coordinate={piece.coordinate}
+        >
+          <Piece color={piece.color} pieceType={piece.pieceType} />
+        </Gridify>
+      ))}
+    </div>
   </div>
 );
 export default Board;
 
-const getSquares = () =>
-  Array.from(Array(64)).map((_, i) => (
-    <div
-      key={i}
-      className={'square' + (i % 16 > 7 ? ' invert' : '')}
-      style={{ width: BOARD_SIZE / 8, height: BOARD_SIZE / 8 }}
-    ></div>
-  ));
-
-const gridifyPieces = (
-  pieces: CoordinatePiece[],
-  onChange: (pieces: CoordinatePiece[]) => any
-) =>
-  pieces.map((piece) => (
-    <Gridify
-      key={`${piece.coordinate[0]}${piece.coordinate[1]}`}
-      onChange={(move) => {
-        piece.coordinate = move;
-        onChange([...pieces]);
-      }}
-      moves={piece.moves}
-      coordinate={piece.coordinate}
-    >
-      <Piece color={piece.color} pieceType={piece.pieceType}></Piece>
-    </Gridify>
-  ));
+const Square = ({ index }: { index: number }) => (
+  <div
+    key={index}
+    className={'square' + (index % 16 > 7 ? ' invert' : '')}
+    style={{ width: BOARD_SIZE / 8, height: BOARD_SIZE / 8 }}
+  ></div>
+);
