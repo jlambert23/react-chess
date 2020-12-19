@@ -9,7 +9,7 @@ export type CoordinatePiece = Omit<PieceProps & GridifyProps, 'onChange'>;
 
 export interface BoardProps {
   pieces: CoordinatePiece[];
-  onChange: (pieces: CoordinatePiece[]) => any;
+  onChange: (pieces: CoordinatePiece[], movedPiece: CoordinatePiece) => any;
 }
 
 const Board = ({ onChange, pieces }: BoardProps) => (
@@ -31,14 +31,14 @@ const getSquares = () =>
 
 const gridifyPieces = (
   pieces: CoordinatePiece[],
-  onChange: (pieces: CoordinatePiece[]) => any
+  onChange: (pieces: CoordinatePiece[], movedPiece: CoordinatePiece) => any
 ) =>
   pieces.map((piece) => (
     <Gridify
       key={`${piece.coordinate[0]}${piece.coordinate[1]}`}
       onChange={(move) => {
         piece.coordinate = move;
-        onChange([...pieces]);
+        onChange([...pieces], piece);
       }}
       moves={piece.moves}
       coordinate={piece.coordinate}
