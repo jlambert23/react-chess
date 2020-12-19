@@ -4,3 +4,11 @@
   height: 50%;
   width: 50%;
 }
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+}

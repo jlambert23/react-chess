@@ -1,4 +1,4 @@
-import { CoordinatePiece } from '../components/Board/Board';
+import { PieceProps } from '../components/Piece/Piece';
 
 export const getInitPieces = () =>
   [
@@ -254,4 +254,4 @@ export const getInitPieces = () =>
       coordinate: [7, 7],
       moves: [],
     },
-  ] as CoordinatePiece[];
+  ] as PieceProps[];

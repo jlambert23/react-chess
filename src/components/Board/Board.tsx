@@ -3,13 +3,10 @@ import React from 'react';
 import './Board.css';
 import { BOARD_SIZE } from '../../config';
 import Piece, { PieceProps } from '../Piece/Piece';
-import Gridify, { GridifyProps } from '../Gridify/Gridify';
-
-export type CoordinatePiece = Omit<PieceProps & GridifyProps, 'onChange'>;
 
 export interface BoardProps {
-  pieces: CoordinatePiece[];
-  onChange: (pieces: CoordinatePiece[]) => any;
+  pieces: PieceProps[];
+  onChange: (pieces: PieceProps[]) => any;
 }
 
 const Board = ({ onChange, pieces }: BoardProps) => (
@@ -21,17 +18,17 @@ const Board = ({ onChange, pieces }: BoardProps) => (
     </div>
     <div>
       {pieces.map((piece) => (
-        <Gridify
+        <Piece
           key={`${piece.coordinate[0]}${piece.coordinate[1]}`}
+          color={piece.color}
+          coordinate={piece.coordinate}
           onChange={(move) => {
             piece.coordinate = move;
             onChange([...pieces]);
           }}
           moves={piece.moves}
-          coordinate={piece.coordinate}
-        >
-          <Piece color={piece.color} pieceType={piece.pieceType} />
-        </Gridify>
+          pieceType={piece.pieceType}
+        />
       ))}
     </div>
   </div>
