@@ -6,7 +6,7 @@ import Piece, { PieceProps } from '../Piece/Piece';
 
 export interface BoardProps {
   pieces: PieceProps[];
-  onChange: (pieces: PieceProps[]) => any;
+  onChange: (piece: PieceProps) => void;
 }
 
 const Board = ({ onChange, pieces }: BoardProps) => (
@@ -24,7 +24,7 @@ const Board = ({ onChange, pieces }: BoardProps) => (
           coordinate={piece.coordinate}
           onChange={(move) => {
             piece.coordinate = move;
-            onChange([...pieces]);
+            onChange(piece);
           }}
           moves={piece.moves}
           pieceType={piece.pieceType}
